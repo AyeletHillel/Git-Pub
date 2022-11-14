@@ -16,8 +16,9 @@
     <h1>Welcome to gitPub</h1>
     <ul>
         <% for(let i = 0; i < allDrinks.length; i++) { %>
+            <% allDrinks[i].name = allDrinks[i].name.charAt(0).toUpperCase() + allDrinks[i].name.slice(1) %>        
             <li>
-                <h3><%=allDrinks[i].name %> </h3>
+                <a href="/drinks/<%=allDrinks[i].name%>"><%=allDrinks[i].name%></a>
             </li>
         <% } %>
     </ul>

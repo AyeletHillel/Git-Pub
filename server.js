@@ -25,6 +25,10 @@ app.get('/drinks/', (req, res) => {
     );
 });
 
+app.get(`/drinks/:id`, (req, res) => {
+    res.send(req.params.id)
+})
+
 app.listen(PORT, (req, res) => {
     console.log(`listening to port ${PORT}`)
 })
