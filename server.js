@@ -27,12 +27,21 @@ app.get('/drinks/', (req, res) => {
     );
 });
 
-app.get(`/drinks/:id/:price`, (req, res) => {
-    res.render("drinks_show.ejs", {
-        name: req.params.id,
-        price: req.params.price
-    })
-})
+
+app.get(`/drinks/:index`, (req, res) => {
+    const index = req.params.index
+    const theDrink = drinks[index]
+    res.render("drinks_show.ejs", 
+    {drink: theDrink, index: index}
+    )})
+
+
+// app.get(`/food/:blah/:blah/:name/:price`, (req, res) => {
+//     res.render("food_show.ejs", {
+//         name: req.params.name,
+//         price: req.params.price
+//     })
+// })
 
 app.listen(PORT, (req, res) => {
     console.log(`listening to port ${PORT}`)

@@ -18,14 +18,14 @@
         <% for(let i = 0; i < allDrinks.length; i++) { %>
             <% allDrinks[i].name = allDrinks[i].name.charAt(0).toUpperCase() + allDrinks[i].name.slice(1) %>        
             <li>
-                <a href="/drinks/<%=allDrinks[i].name%>/<%=allDrinks[i].price%>"><%=allDrinks[i].name%></a>
+                <a href="/drinks/<%=i%>"><%=allDrinks[i].name%></a>
             </li>
         <% } %>
     </ul>
     <ul>
         <% for(let i = 0; i < allFood.length; i++) { %>
-            <li>
-                <%=allFood[i].name%> 
+            <li>  
+                <a href="/food/<%=allFood[i].name%>/<%allFood[i].price%>/<%=allFood[i].name%>/<%allFood[i].price%>"><%=allFood[i].name%></a>
             </li>
          <% } %>
     </ul>
