@@ -4,7 +4,7 @@ require('dotenv').config()
 const PORT = 3000
 
 const drinks = require('./models/drinks.js');
-const food = require('./models/food.js')
+const foods = require('./models/food.js')
 
 
 app.get("/", (req, res) => {
@@ -22,7 +22,7 @@ app.get('/drinks/', (req, res) => {
         'drinks_index.ejs',
         {
             allDrinks:drinks,
-            allFood:food
+            allFood:foods
         }
     );
 });
@@ -36,12 +36,12 @@ app.get(`/drinks/:index`, (req, res) => {
     )})
 
 
-// app.get(`/food/:blah/:blah/:name/:price`, (req, res) => {
-//     res.render("food_show.ejs", {
-//         name: req.params.name,
-//         price: req.params.price
-//     })
-// })
+app.get(`/drinks/:anything/:index`, (req, res) => {
+    const index = req.params.index
+    const theFood = foods[index]
+    res.render("food_show.ejs", {
+    food: theFood, index:index}
+    )})
 
 app.listen(PORT, (req, res) => {
     console.log(`listening to port ${PORT}`)
